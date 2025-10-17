@@ -17,5 +17,25 @@ document.addEventListener('DOMContentLoaded', function(){
       isValid = false;
       messages.push('Username Must be at least 3 characters long');
     }
+
+    if (!email.includes('@') || !email.includes('.')){
+      isValid = false;
+      messages.push('Email must contain both "@" and "." characters');
+    }
+
+    if (password.length < 8){
+      isValid = false;
+      messages.push('Email must contain both "@" and "." characters');
+    }
+
+    feedbackDiv.style.display = "block";
+    if(isValid){
+      feedbackDiv.textContent = "Registration successful!";
+      feedbackDiv.style.color = "#28a745";
+    }
+    else{
+      feedbackDiv.innerHTML = messages.join('<br>');
+      feedbackDiv.style.color = "#dc3545"
+    }
   })
 })
